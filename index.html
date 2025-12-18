@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dog Sound Button</title>
+
+<style>
+body {
+  background: black;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img#dog {
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s;
+}
+
+img#dog:active {
+  transform: scale(1.1); /* efekt powiększenia przy kliknięciu */
+}
+</style>
+</head>
+
+<body>
+
+<img id="dog" src="dog.png" alt="DOG" onclick="playSound()">
+
+<audio id="sound" src="sound.mp3"></audio>
+
+<script>
+function playSound() {
+  const audio = document.getElementById("sound");
+  audio.currentTime = 0; // restart dźwięku przy szybkim klikaniu
+  audio.play();
+}
+</script>
+
+</body>
+</html>
